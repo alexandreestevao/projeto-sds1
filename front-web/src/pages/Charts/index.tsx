@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Filters from '../../components/Filters';
 import './styles.css';
-import { barOptions, pieOptions } from './chart-options';
+import { barOptions } from './chart-options';
 import Chart from 'react-apexcharts';
 import axios from 'axios';
 import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers'
