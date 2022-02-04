@@ -58,15 +58,16 @@ const Charts = () => {
                             series={[{ data: barChartData }]}
                             type="bar"
                             width="900"
-                            height="650"                            
+                            height="650"
+                            
                         />
                     </div>
                 </div>
                 <div className="charts">
                     <div className="platform-chart">
                         <h2 className="chart-title">Plataformas</h2>
-                        <Chart 
-                            options={{ ...pieOptions, labels: platformData?.labels }}
+                        //<Chart 
+                        //    options={{ ...pieOptions, labels: platformData?.labels }}
                             series={platformData?.series}
                             type="donut"
                             width="350"
@@ -75,7 +76,7 @@ const Charts = () => {
                     <div className="gender-chart">
                         <h2 className="chart-title">Gêneros</h2>
                         <Chart 
-                            options={{ ...pieOptions, labels: genderData?.labels }}
+                        //    options={{ ...pieOptions, labels: genderData?.labels }}
                             type="donut"
                             series={genderData?.series}
                             width="350"
