@@ -5,7 +5,6 @@ import { barOptions } from './chart-options';
 import Chart from 'react-apexcharts';
 import axios from 'axios';
 import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers'
-import { BASE_URL } from '../../utils/requests';
 
 type PieChartData = {
     labels: string[];
@@ -21,6 +20,8 @@ const initialPieData = {
     labels: [],
     series: []
 }
+
+const BASE_URL = 'https://sds1-estevao.herokuapp.com'
 
 const Charts = () => {
     const [barChartData, setBarChartData] = useState<BarChartData[]>([]);
@@ -55,28 +56,29 @@ const Charts = () => {
                     <div className="games-container">
                         <Chart 
                             options={barOptions} 
-                            series={[{ data: barChartData }]}
                             type="bar"
                             width="900"
                             height="650"
-                            
+                            series={[{ data: barChartData }]}
                         />
                     </div>
                 </div>
                 <div className="charts">
                     <div className="platform-chart">
                         <h2 className="chart-title">Plataformas</h2>
-                        //<Chart 
-                        //    options={{ ...pieOptions, labels: platformData?.labels }}
-                            series={platformData?.series}
+                        <Chart 
+                        options={{labels: platformData?.labels}} 
+                            //options={{ ...pieOptions, labels: platformData?.labels }}
                             type="donut"
+                            series={platformData?.series}
                             width="350"
                         />
                     </div>
                     <div className="gender-chart">
                         <h2 className="chart-title">Gêneros</h2>
                         <Chart 
-                        //    options={{ ...pieOptions, labels: genderData?.labels }}
+                        options={{labels: genderData?.labels}} 
+                            //options={{ ...pieOptions, labels: genderData?.labels }}
                             type="donut"
                             series={genderData?.series}
                             width="350"
